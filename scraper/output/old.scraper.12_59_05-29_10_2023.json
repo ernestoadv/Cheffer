@@ -1,0 +1,34 @@
+{
+    "categories": [
+        {
+            "code": "FRUITS",
+            "id": "1",
+            "name": "Frutas",
+            "products": []
+        },
+        {
+            "code": "OIL_AND_VINEGAR",
+            "id": "2",
+            "name": "Aceite y vinagre",
+            "products": []
+        },
+        {
+            "code": "SAUCES",
+            "id": "3",
+            "name": "Salsas",
+            "products": []
+        },
+        {
+            "code": "SPICES",
+            "id": "4",
+            "name": "Especias",
+            "products": []
+        },
+        {
+            "code": "VEGETABLES",
+            "id": "5",
+            "name": "Verduras",
+            "products": []
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "CATEGORIES": {
+        "BEER": "Cerveza",
+        "BUTCHER": "Carnicería",
+        "CHARCUTERIE": "Charcutería",
+        "CHEESE": "Quesos",
+        "ENERGETIC_ISOTONIC_DRINKS": "Bebidas energéticas e isotónicas",
+        "FISH": "Pescado",
+        "FRUITS": "Frutas",
+        "JUICE": "Zumos",
+        "LIQUEURS": "Licores",
+        "OIL_AND_VINEGAR": "Aceite y vinagre",
+        "OTHER_DRINKS": "Otras bebidas",
+        "SAUCES": "Salsas",
+        "SEAFOOD": "Marisco",
+        "SODA": "Refrescos",
+        "SPICES": "Especias",
+        "SUMMER_WINE": "Tinto de verano y sangría",
+        "TONIC": "Tónica",
+        "VEGETABLES": "Verduras",
+        "WATER": "Agua",
+        "WINE": "Vino"
+    }
+}
