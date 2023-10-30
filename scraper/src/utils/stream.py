@@ -10,9 +10,20 @@ class ComplexEncoder(json.JSONEncoder):
         else:
             return json.JSONEncoder.default(self, obj)
 
-def write_json(dir, obj):
-    # First, rename outdated files
+def create_dir(dir):
+    # Check whether the specified path exists or not
+    isExist = os.path.exists(dir)
+    
+    # Create a new directory if it does not exist
+    if not isExist:
+        os.makedirs(dir)
+        print("\nDirectory does not exist. Creating it...")
 
+def write_json(dir, obj):
+    # First, create dir if needed
+    create_dir(dir)
+    
+    # Second, rename outdated files
     for file in os.listdir(dir):
         # Get file stem (without extension)
         file_stem = Path(file).stem
@@ -29,13 +40,11 @@ def write_json(dir, obj):
             print('FILE WON\'T BE SAVED: ', file)
 
     # Name new file
-    
     file_name = "scraper." + datetime.now().strftime("%H_%M_%S-%d_%m_%Y") + '.json'
     
     # Write data into file and save it
-    
     with open(dir + file_name, 'w', encoding='raw_unicode_escape') as write_file:
         json_data = json.dumps(obj, default=lambda x: x.__dict__)
         json.dump(json.JSONDecoder().decode(json_data), write_file, cls = ComplexEncoder, indent = 4, ensure_ascii=False, sort_keys=True)
-        print("\nSuccess. Data saved in: " + dir + file_name)
+        print("\nSuccess! Data saved in: " + dir + file_name)
         
