@@ -37,13 +37,13 @@ def write_json(dir, obj):
         
         # File is not to be saved
         if not is_json:
-            print('FILE WON\'T BE SAVED: ', file)
+            print('Extension error! File won\'t be saved: : ', file)
 
     # Name new file
     file_name = "scraper." + datetime.now().strftime("%H_%M_%S-%d_%m_%Y") + '.json'
     
     # Write data into file and save it
-    with open(dir + file_name, 'w', encoding='raw_unicode_escape') as write_file:
+    with open(dir + file_name, 'w', encoding='utf-8') as write_file:
         json_data = json.dumps(obj, default=lambda x: x.__dict__)
         json.dump(json.JSONDecoder().decode(json_data), write_file, cls = ComplexEncoder, indent = 4, ensure_ascii=False, sort_keys=True)
         print("\nSuccess! Data saved in: " + dir + file_name)

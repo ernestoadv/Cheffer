@@ -10,7 +10,7 @@ def get_literal(key: str):
         literal = get_value_from_list(key, literals)
         return literal
     except:
-        print("[error][locale.py][get_literal] Error retrieving literal")
+        print("[error][locale.py][get_literal] Error retrieving literal: ", key)
     return ''
 
 # Loads literals based on config's selected locale

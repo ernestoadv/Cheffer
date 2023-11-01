@@ -5,7 +5,7 @@ class Store:
     name: str
 
     def __init__(self, id, name):
-        self.id = id
+        self.id = str(id)
         self.name = name.value
                 
     def __json__(self):

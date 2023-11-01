@@ -43,7 +43,7 @@ if args.dia or args.all:
     pass
 
 if args.mercadona or args.all:
-    # scraper.mercadona()
+    scraper.mercadona()
     pass
     
 if not (args.alcampo or args.carrefour or args.dia or args.mercadona or args.all):

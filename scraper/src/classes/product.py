@@ -19,9 +19,9 @@ class Product:
         self.id = id
         self.name = name
         self.store = store
-        self.price = limit_float(price, 2)
+        self.price = limit_float(price, 2) if type(price) is float else 0
         self.currency = currency.value
-        self.size = limit_float(size, 2)
+        self.size = limit_float(size, 2) if type(size) is float else 0
         self.size_format = size_format
         self.packaging = packaging
                 

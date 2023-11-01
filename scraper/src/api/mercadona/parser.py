@@ -9,7 +9,7 @@ def parser(data, store: Store):
         sub_category_products = sub_category['products']
         for sub_category_product in sub_category_products:
             try:
-                id = store.id + "_" + sub_category_product['id']
+                id = store.id + "_" + str(sub_category_product['id'])
                 name = sub_category_product['display_name']
                 price = float(sub_category_product['price_instructions']['unit_price'])
                 currency = Currency.EUR
@@ -17,6 +17,6 @@ def parser(data, store: Store):
                 size_format = sub_category_product['price_instructions']['size_format']
                 packaging = sub_category_product['packaging']
                 products.append(Product(id, name, store, price, currency, size, size_format, packaging))
-            except: 
-                print("[error][mercadona][parser.py] Error when parsing product")
+            except Exception as error: 
+                print("[error][mercadona][parser.py]", error)
     return products
