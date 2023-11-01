@@ -19,7 +19,7 @@ def create_dir(dir):
         os.makedirs(dir)
         print("\nDirectory does not exist. Creating it...")
 
-def write_json(dir, obj):
+def write_json(dir, name, obj):
     # First, create dir if needed
     create_dir(dir)
     
@@ -32,7 +32,7 @@ def write_json(dir, obj):
         is_json = os.path.isfile(os.path.join(dir, file_stem + '.json'))
 
         # Just save files that are not in out directory
-        if is_json and not 'old' in file:
+        if is_json and name in file and not 'old' in file:
             os.rename(dir + file, dir + "old." + file)
         
         # File is not to be saved
@@ -40,7 +40,7 @@ def write_json(dir, obj):
             print('Extension error! File won\'t be saved: : ', file)
 
     # Name new file
-    file_name = "scraper." + datetime.now().strftime("%H_%M_%S-%d_%m_%Y") + '.json'
+    file_name = name + "." + datetime.now().strftime("%H_%M_%S-%d_%m_%Y") + '.json'
     
     # Write data into file and save it
     with open(dir + file_name, 'w', encoding='utf-8') as write_file:

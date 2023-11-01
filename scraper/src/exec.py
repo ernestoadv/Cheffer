@@ -1,3 +1,15 @@
+""" 
+    Aplicación: Scraper de productos de supermercados
+    Autor: Ernesto Aranda del Valle
+    Uso: Privado
+
+    Este script realiza scraping de datos de productos de supermercados para uso privado.
+    Ernesto Aranda del Valle es el autor de este programa.
+
+    Cualquier uso que no esté autorizado expresamente por el autor está prohibido.
+    Se prohíbe la reproducción, distribución o cualquier otro uso sin consentimiento.
+"""
+
 import argparse
 import os
 from classes.app import App
@@ -15,8 +27,6 @@ App(Currency.EUR, Locale.ES, root)
 
 from classes.scraper import Scraper
 
-scraper = Scraper()
-
 # Check what supermarkets we will retrieve information from
 
 parser = argparse.ArgumentParser(description='Fetch supermarkets\' products.')
@@ -26,31 +36,49 @@ parser.add_argument("--carrefour", const=True, default=False, help = 'Obtains da
 parser.add_argument("--dia", const=True, default=False, help = 'Obtains data from Dia', nargs='?', type=bool)
 parser.add_argument("--mercadona", const=True, default=False, help = 'Obtains data from Mercadona', nargs='?', type=bool)
 
-# Request supermarkets' products
-
 args = parser.parse_args()
 
-if args.alcampo or args.all:
-    # scraper.alcampo()
-    pass
-
-if args.carrefour or args.all:
-    # scraper.carrefour()
-    pass
-
-if args.dia or args.all:
-    # scraper.dia()
-    pass
-
-if args.mercadona or args.all:
-    scraper.mercadona()
-    pass
+# If no supermarket is request on execution, print usage message
     
 if not (args.alcampo or args.carrefour or args.dia or args.mercadona or args.all):
-    print("\n Usage: scrap.py --all, --alcampo | --carrefour | --dia | --mercadona")
-    print("\n No arguments provided. Finishing process.")
-    
+    print("\nUsage: scrap.py --all, --alcampo | --carrefour | --dia | --mercadona")
+    print("\nNo arguments provided. Finishing process.")    
+
+# Request and store supermarkets' products in a JSON file
+
 else:
-    # Store retreived data in a JSON file
+    
     dir = '../output/'
-    write_json(dir, scraper)
+    if args.alcampo or args.all:
+        # name = 'alcampo'
+        # scraper = Scraper()
+        # scraper.alcampo()
+        # write_json(dir, name, scraper)
+        print("\nThis supermarket is not available yet. Sorry for the inconvenience.")    
+        print("\nFinishing process.")    
+        pass
+
+    if args.carrefour or args.all:
+        # name = 'carrefour'
+        # scraper = Scraper()
+        # scraper.carrefour()
+        # write_json(dir, name, scraper)
+        print("\nThis supermarket is not available yet. Sorry for the inconvenience.")    
+        print("\nFinishing process.")    
+        pass
+
+    if args.dia or args.all:
+        # name = 'dia'
+        # scraper = Scraper()
+        # scraper.dia()
+        # write_json(dir, name, scraper)
+        print("\nThis supermarket is not available yet. Sorry for the inconvenience.")  
+        print("\nFinishing process.")     
+        pass
+
+    if args.mercadona or args.all:
+        name = 'mercadona'
+        scraper = Scraper()
+        scraper.mercadona()
+        write_json(dir, name, scraper)
+        pass
