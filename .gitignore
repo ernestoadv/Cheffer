@@ -260,7 +260,8 @@ dist
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
+# VSCode
+.vscode
 .vscode-test
 
 # yarn v2
@@ -269,3 +270,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# app
+app/.bundle
+app/android
+app/ios
+app/package-lock.json
+
+#package
+package-lock.json
