@@ -1,14 +1,13 @@
-import Config from '../../../app.json';
+import AppLogo from '../atoms/appLogo';
 import SplashContainer from '../atoms/splashContainer';
 import SplashText from '../atoms/splashText';
-import {Image} from 'react-native';
 
-const TSplash = () => {
+const TSplash = ({name}: {name: string}) => {
   return (
     <>
       <SplashContainer>
-        <Image source={require('../../assets/images/chef_hat.png')} />
-        <SplashText>{Config.displayName}</SplashText>
+        <AppLogo />
+        <SplashText>{name}</SplashText>
       </SplashContainer>
     </>
   );

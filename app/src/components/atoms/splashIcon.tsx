@@ -1,16 +1,18 @@
+import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 
-const SplashIcon = styled.Image`
-  color: white;
-  font-family: 'Cookie-Regular';
-  font-size: 100px;
-  margin: auto;
-  overflow: visible;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
-`;
+const SplashIcon = (props: {source: ImageSourcePropType}) => {
+  const StyledIcon = styled.Image`
+    margin: auto;
+    height: 150px;
+    margin: 0px 0 30px 0;
+    width: 150px;
+  `;
+  return <StyledIcon source={props.source} />;
+};
 
 SplashIcon.defaultProps = {
-  source: require('../../assets/images/chefHat.png'),
+  source: require('../../assets/images/chef_hat.png'),
 };
 
 export default SplashIcon;
